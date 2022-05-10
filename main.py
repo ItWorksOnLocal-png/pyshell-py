@@ -26,9 +26,10 @@ Choose a color for your terminal:
 
 def pyshell():
     print('''
-===================
+============================
 Welcome to PyShell
-===================
+--> PyShell v0.1 alpha <--
+============================
     ''')
 
     valid = True
@@ -40,6 +41,7 @@ Welcome to PyShell
         if "menu" in commands:
             os.system('cls')
             main()
+
 
         os.system(f"{commands}")
 
@@ -74,7 +76,7 @@ Welcome to the Python terminal emulator (PyShell)
                 terminal_color()
                 os.system('cls')
                 main()
-                
+
             elif action == 2:
                 os.system('cls')
                 pyshell()
@@ -85,13 +87,24 @@ Welcome to the Python terminal emulator (PyShell)
                 print("=== Py Shell Updater ===\n")
                 confirmations = input("Do you want to update PyShell? (y/n) > ")
                 if confirmations in ["y", "yes", "yeah"]:
-                    print("\nUpdating PyShell...\n")
-                    os.system('git clone https://github.com/ItWorksOnLocal-png/pyshell-py.git')
-                    print("\n***THE UPDATED VERSION WAS DOWNLOADED IN A NEW DIRECTORY ***")
-                    pause("\nPress any key to go back...")
-                    os.system('cls')
-                    os.system('color f')
-                    main()
+                    if os.path.isdir('pyshell-py'):
+                        os.system('cls')
+                        print("\nPlease remove old version before updating!")
+                        valid = False
+                        pause("\nPress any key to go back...")
+                        os.system('cls')
+                        os.system('color f')
+                        main()
+
+                    else:
+                        print("\nUpdating PyShell...\n")
+                        os.system('git clone https://github.com/ItWorksOnLocal-png/pyshell-py.git')
+                        print("\n***THE UPDATED VERSION HAS BEEN DOWNLOADED IN A NEW DIRECTORY NAMED 'pyshell-py'***")
+                        pause("\nPress any key to go back...")
+                        os.system('cls')
+                        os.system('color f')
+                        main()
+
                 else:
                     print("\nExiting the updater...")
                     time.sleep(1)
