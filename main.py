@@ -1,4 +1,6 @@
 import os
+import time
+from click import pause
 
 # ===================================================================================
 
@@ -43,7 +45,7 @@ Welcome to PyShell
 
 # ===================================================================================
 
-def main():
+def main():  # sourcery skip: extract-method, hoist-statement-from-if, switch
     print('''
 ===================================================
 Welcome to the Python terminal emulator (PyShell)
@@ -72,10 +74,26 @@ Welcome to the Python terminal emulator (PyShell)
                 pyshell()
 
             elif action == 3:
-                os.system('git clone ')
+                os.system('cls')
+                os.system('color c')
+                print("=== Py Shell Updater ===\n")
+                confirmations = input("Do you want to update PyShell? (y/n) > ")
+                if confirmations in ["y", "yes", "yeah"]:
+                    print("\nUpdating PyShell...\n")
+                    os.system('git clone https://github.com/ItWorksOnLocal-png/pyshell-py.git')
+                    pause("\nPress any key to go back...")
+                    os.system('cls')
+                    main()
+                else:
+                    print("\nExiting the updater...")
+                    time.sleep(1)
+                    os.system('cls')
+                    os.system('color f')
+                    main()
+
 
         except ValueError:
-            print("\nInvalid input! Please try again")
+            print("\nInvalid input! Please try again\n")
             valid = False
 
 # ===================================================================================
