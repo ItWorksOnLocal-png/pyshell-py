@@ -115,7 +115,7 @@ Welcome to the Python terminal emulator (PyShell)
 
         except ValueError:
             print("\nInvalid input! Please try again\n")
-            valid = False
+            valid = True
 
 # ===================================================================================
 
