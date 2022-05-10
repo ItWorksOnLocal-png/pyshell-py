@@ -18,7 +18,14 @@ Choose a color for your terminal:
 7 = White       F = Bright White
     ''')
 
-    color = input('> ')
+    valid = True
+    while valid:
+        color = input('> ')
+
+        if color not in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'a', 'b', 'c', 'd', 'e', 'f']:
+            print("--> Invalid color value, try again!")
+        else:
+            valid = False
 
     os.system(f'color {color}')
 
@@ -89,7 +96,7 @@ Welcome to the Python terminal emulator (PyShell)
                 if confirmations in ["y", "yes", "yeah"]:
                     if os.path.isdir('pyshell-py'):
                         os.system('cls')
-                        print("\nPlease remove old version before updating!")
+                        print("\n--> Please remove old version before updating!")
                         valid = False
                         pause("\nPress any key to go back...")
                         os.system('cls')
@@ -114,7 +121,7 @@ Welcome to the Python terminal emulator (PyShell)
 
 
         except ValueError:
-            print("\nInvalid input! Please try again\n")
+            print("\n--> Invalid input! Please try again\n")
             valid = True
 
 # ===================================================================================
