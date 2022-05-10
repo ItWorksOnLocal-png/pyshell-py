@@ -45,7 +45,7 @@ Welcome to PyShell
 
 # ===================================================================================
 
-def main():  # sourcery skip: extract-method, hoist-statement-from-if, switch
+def main():  # sourcery skip: extract-duplicate-method, extract-method, hoist-statement-from-if, switch
     print('''
 ===================================================
 Welcome to the Python terminal emulator (PyShell)
@@ -62,6 +62,11 @@ Welcome to the Python terminal emulator (PyShell)
     while valid:
         try:
             action = input("Choose and action (1-3) > ")
+
+            if "exit" in action:
+                os.system('cls')
+                quit()
+
             action = int(action)
 
             if action == 1:
@@ -69,6 +74,7 @@ Welcome to the Python terminal emulator (PyShell)
                 terminal_color()
                 os.system('cls')
                 main()
+                
             elif action == 2:
                 os.system('cls')
                 pyshell()
@@ -81,8 +87,10 @@ Welcome to the Python terminal emulator (PyShell)
                 if confirmations in ["y", "yes", "yeah"]:
                     print("\nUpdating PyShell...\n")
                     os.system('git clone https://github.com/ItWorksOnLocal-png/pyshell-py.git')
+                    print("\n***THE UPDATED VERSION WAS DOWNLOADED IN A NEW DIRECTORY ***")
                     pause("\nPress any key to go back...")
                     os.system('cls')
+                    os.system('color f')
                     main()
                 else:
                     print("\nExiting the updater...")
