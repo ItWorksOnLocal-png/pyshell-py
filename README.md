@@ -6,7 +6,7 @@ PyShell in a shell interface for the Windows built-in Command Prompt
 
 Download directly from the Git Repository
 
-    [PyShell ZIP Archive](https://github.com/ItWorksOnLocal-png/pyshell-py/archive/refs/heads/main.zip)
+[PyShell ZIP Archive](https://github.com/ItWorksOnLocal-png/pyshell-py/archive/refs/heads/main.zip)
 
 Or using the following command...
 
