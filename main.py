@@ -35,7 +35,6 @@ def pyshell():
     print('''
 ============================
 Welcome to PyShell
---> PyShell v0.1 alpha <--
 ============================
     ''')
 
@@ -75,6 +74,9 @@ Welcome to the Python terminal emulator (PyShell)
             if "exit" in action:
                 os.system('cls')
                 quit()
+            
+            if "version" in action:
+                print("\n--> PyShell v0.1 alpha <--\n")
 
             action = int(action)
 
@@ -121,7 +123,6 @@ Welcome to the Python terminal emulator (PyShell)
 
 
         except ValueError:
-            print("\n--> Invalid input! Please try again\n")
             valid = True
 
 # ===================================================================================
